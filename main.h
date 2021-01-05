@@ -4,7 +4,7 @@
 
 typedef struct node_t {
     void *element;
-    node_t *next;
+    struct node_t *next;
 } node_t;
 
 typedef struct list_t {
@@ -27,18 +27,18 @@ node_t *before(list_t *list, node_t *p);
 
 node_t *after(list_t *list, node_t *p);
 
-void insert_first(list_t *list, void *e);
+node_t *insert_first(list_t *list, void *e);
 
-void insert_before(list_t *list, node_t *p, void *e);
+node_t *insert_before(list_t *list, node_t *p, void *e);
 
-void insert_last(list_t *list, void *e);
+node_t *insert_last(list_t *list, void *e);
 
-void insert_after(list_t *list, node_t *p, void *e);
+node_t *insert_after(list_t *list, node_t *p, void *e);
 
 void *remove_first(list_t *list);
 
 void *remove_last(list_t *list);
 
-void *remove(list_t *list, node_t *p);
+void *remove_node(list_t *list, node_t *p);
 
-void destroy_list();
+void destroy_list(list_t *list);
