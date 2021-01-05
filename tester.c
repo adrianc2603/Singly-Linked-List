@@ -293,52 +293,9 @@ void test_all_functions_regular_cases() {
     destroy_list(list);
 }
 
-void test_node_not_in_list() {
-    list_t *list = create_list();
-    node_t *node = malloc(sizeof(node_t));
-    int *a = malloc(sizeof(int));
-    *a = 3;
-    node->element = a;
-    node->next = NULL;
-
-    if (before(list, node) == NULL) {
-        printf("Before is NULL because the node isn't in the list\n");
-    }
-    else {
-        printf("Before is not NULL, but it should be\n");
-    }
-
-    if (after(list, node) == NULL) {
-        printf("After is NULL because the node isn't in the list\n");
-    }
-    else {
-        printf("After is not NULL, but it should be\n");
-    }
-
-    if (insert_before(list, node, a) == NULL) {
-        printf("Insert Before is NULL because the node isn't in the list\n");
-    }
-    else {
-        printf("Insert Before is not NULL, but it should be\n");
-    }
-
-    if (insert_after(list, node, a) == NULL) {
-        printf("Insert After is NULL because the node isn't in the list\n");
-    }
-    else {
-        printf("Insert After is not NULL, but it should be\n");
-    }
-
-
-    free(a);
-    destroy_list(list);
-}
-
 int main() {
 
     // test_all_functions_regular_cases();
-
-    // test_node_not_in_list();
 
     return 0;
 }
