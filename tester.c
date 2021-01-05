@@ -275,12 +275,10 @@ void test_all_functions_regular_cases() {
 
     if (after(list, node_h) == NULL) {
         printf("The node after node_h is NULL because node_h is the tail\n"); // This should print
-
     }
     else {
         printf("The node after node_h is not NULL, but it should be");
     }
-
 
     free(a);
     free(b);
@@ -295,7 +293,7 @@ void test_all_functions_regular_cases() {
 
 int main() {
 
-    // test_all_functions_regular_cases();
+    test_all_functions_regular_cases();
 
     return 0;
 }
