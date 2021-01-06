@@ -38,6 +38,30 @@ bool is_empty(list_t *list) {
 }
 
 /**
+ * Find and return the node containing element e. Return NULL if it's not found
+ * Time Complexity: O(n)
+ */
+node_t *get_node(list_t *list, void *e) {
+    if (list == NULL) {
+        printf("List is NULL\n");
+        return NULL;
+    }
+
+    // Find and return the node with element e
+    node_t *current_node = list->head;
+    while (current_node != NULL) {
+        if (current_node->element == e) {
+            return current_node;
+        }
+        current_node = current_node->next;
+    }
+
+    // Not found
+    printf("The node was not found in the list\n");
+    return NULL;
+}
+
+/**
  * Return the position of the first element (NULL if empty)
  * Time Complexity: O(1)
  */ 
@@ -98,10 +122,10 @@ node_t *after(list_t *list, node_t *p) {
  * the position of the element
  * Time Complexity: O(1)
  */
-node_t *insert_first(list_t *list, void *e) {
+void insert_first(list_t *list, void *e) {
      if (list == NULL) {
         printf("List is NULL\n");
-        return NULL;
+        return;
     }
     node_t *new_node = malloc(sizeof(node_t));
     new_node->element = e;
@@ -111,7 +135,6 @@ node_t *insert_first(list_t *list, void *e) {
     if (list->size == 1) {
         list->tail = list->head;
     }
-    return new_node;
 }
 
 /**
@@ -119,15 +142,16 @@ node_t *insert_first(list_t *list, void *e) {
  * of the element. 
  * Time Complexity: O(n)
  */
-node_t *insert_before(list_t *list, node_t *p, void *e) {
+void insert_before(list_t *list, node_t *p, void *e) {
     if (list == NULL || p == NULL) {
         printf("List is NULL or p is NULL\n");
-        return NULL;
+        return;
     }
 
     // Insert before the current head
     if (list->head == p) {
-        return insert_first(list, e);
+        insert_first(list, e);
+        return;
     }
 
     // Find the previous node
@@ -141,7 +165,7 @@ node_t *insert_before(list_t *list, node_t *p, void *e) {
 
     if (prev_node == NULL) { // Either list is empty or p was not found
         printf("List is empty or p was not found in the list\n");
-        return NULL;
+        return;
     }
 
     // Create node, set its element to e, and add it before prev_node 
@@ -150,7 +174,6 @@ node_t *insert_before(list_t *list, node_t *p, void *e) {
     new_node->next = p;
     prev_node->next = new_node;
     list->size++;
-    return new_node;
 }
 
 /**
@@ -158,12 +181,13 @@ node_t *insert_before(list_t *list, node_t *p, void *e) {
  * the position of the element
  * Time Complexity: O(1)
  */
-node_t *insert_last(list_t *list, void *e) {
+void insert_last(list_t *list, void *e) {
      if (list == NULL) {
-        return NULL;
+        return;
     }
     if (list->size == 0) {
-        return insert_first(list, e);
+        insert_first(list, e);
+        return;
     }
     node_t *new_node = malloc(sizeof(node_t));
     new_node->element = e;
@@ -171,7 +195,6 @@ node_t *insert_last(list_t *list, void *e) {
     list->tail->next = new_node;
     list->tail = new_node;
     list->size++;
-    return new_node;
 }
 
 /**
@@ -179,15 +202,16 @@ node_t *insert_last(list_t *list, void *e) {
  * position of the element. 
  * Time Complexity: O(1)
  */
-node_t *insert_after(list_t *list, node_t *p, void *e) {
+void insert_after(list_t *list, node_t *p, void *e) {
     if (list == NULL || p == NULL) {
         printf("List is NULL or p is NULL\n");
-        return NULL;
+        return;
     }
 
     // Insert after the current tail
     if (list->tail == p) {
-        return insert_last(list, e);
+        insert_last(list, e);
+        return;
     }
 
     // Create node, set its element to e, and add it after p
@@ -196,7 +220,6 @@ node_t *insert_after(list_t *list, node_t *p, void *e) {
     new_node->next = p->next;
     p->next = new_node;
     list->size++;
-    return new_node;
 }
 
 /**

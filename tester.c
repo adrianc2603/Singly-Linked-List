@@ -34,18 +34,21 @@ void test_all_functions_regular_cases() {
 
     int *a = malloc(sizeof(int));
     *a = 4;
-    node_t *node_a = insert_first(list, a);
+    insert_first(list, a);
     print_list(list); // 4 - 
+    node_t *node_a = get_node(list, a);
 
     int *b = malloc(sizeof(int));
     *b = 6;
-    node_t *node_b = insert_first(list, b);
+    insert_first(list, b);
     print_list(list); // 6 - 4 - 
+    node_t *node_b = get_node(list, b);
 
     int *c = malloc(sizeof(int));
     *c = 3;
-    node_t *node_c = insert_last(list, c);
+    insert_last(list, c);
     print_list(list); // 6 - 4 - 3 - 
+    node_t *node_c = get_node(list, c);
 
     printf("Size of list is %d\n", list->size); // Size of list is 3
     printf("Is this list empty? %d\n", is_empty(list)); // Is this list empty? 0 (False)
@@ -68,23 +71,27 @@ void test_all_functions_regular_cases() {
 
     int *d = malloc(sizeof(int));
     *d = 7;
-    node_t *node_d = insert_after(list, node_a, d);
+    insert_after(list, node_a, d);
     print_list(list); // 6 - 4 - 7 - 3 - 
+    node_t *node_d = get_node(list, d);
 
     int *e = malloc(sizeof(int));
     *e = 11;
-    node_t *node_e = insert_before(list, node_d, e);
+    insert_before(list, node_d, e);
     print_list(list); // 6 - 4 - 11 - 7 - 3 - 
+    node_t *node_e = get_node(list, e);
 
     int *f = malloc(sizeof(int));
     *f = 2;
-    node_t *node_f = insert_before(list, list->head, f);
+    insert_before(list, list->head, f);
     print_list(list); // 2 - 6 - 4 - 11 - 7 - 3 - 
+    node_t *node_f = get_node(list, f);
 
     int *g = malloc(sizeof(int));
     *g = 5;
-    node_t *node_g = insert_after(list, list->tail, g);
+    insert_after(list, list->tail, g);
     print_list(list); // 2 - 6 - 4 - 11 - 7 - 3 - 5 -
+    node_t *node_g = get_node(list, g);
 
     if (before(list, node_e) == node_a) {
         printf("The node before node_e is node_a\n"); // This should print
@@ -258,7 +265,8 @@ void test_all_functions_regular_cases() {
 
     int *h = malloc(sizeof(int));
     *h = 25;
-    node_t *node_h = insert_last(list, h);
+    insert_last(list, h);
+    node_t *node_h = get_node(list, h);
 
     print_list(list); // 25 -
     printf("Size of list is %d\n", list->size); // Size of list is 1
