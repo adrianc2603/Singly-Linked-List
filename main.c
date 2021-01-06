@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 /**
  * Create linked list and set it's head and tail to NULL and size to 0
  * Time Complexity: O(1)
@@ -118,8 +117,7 @@ node_t *after(list_t *list, node_t *p) {
 }
 
 /**
- * Create new node with element e and set it as the head of the list. Return 
- * the position of the element
+ * Create new node with element e and set it as the head of the list. 
  * Time Complexity: O(1)
  */
 void insert_first(list_t *list, void *e) {
@@ -138,8 +136,7 @@ void insert_first(list_t *list, void *e) {
 }
 
 /**
- * Insert e in front of the element at position p. Return the position
- * of the element. 
+ * Insert e in front of the element at position p. 
  * Time Complexity: O(n)
  */
 void insert_before(list_t *list, node_t *p, void *e) {
@@ -177,8 +174,7 @@ void insert_before(list_t *list, node_t *p, void *e) {
 }
 
 /**
- * Create new node with element e and set it as the tail of the list. Return
- * the position of the element
+ * Create new node with element e and set it as the tail of the list. 
  * Time Complexity: O(1)
  */
 void insert_last(list_t *list, void *e) {
@@ -198,8 +194,7 @@ void insert_last(list_t *list, void *e) {
 }
 
 /**
- * Insert e following the element at position p. Return the 
- * position of the element. 
+ * Insert e following the element at position p. 
  * Time Complexity: O(1)
  */
 void insert_after(list_t *list, node_t *p, void *e) {
