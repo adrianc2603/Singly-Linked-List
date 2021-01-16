@@ -219,6 +219,8 @@ void *remove_first(list_t *list) {
     list->head = list->head->next;
     free(rem_node);
     list->size--;
+
+    // List is now empty
     if (list->size == 0) {
         list->head = NULL;
         list->tail = NULL;
@@ -299,10 +301,6 @@ void *remove_node(list_t *list, node_t *p) {
     prev_node->next = p->next;
     free(p);
     list->size--;
-    if (list->size == 0) {
-        list->head = NULL;
-        list->tail = NULL;
-    }
     return rem_element;
 }
 
