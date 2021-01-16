@@ -249,7 +249,8 @@ void *remove_last(list_t *list) {
         current_node = current_node->next;
     }
 
-    if (current_node == NULL) { // Either list is empty or new tail was not found
+    // Either list is empty or new tail was not found
+    if (current_node == NULL) { 
         return NULL;
     }
 
